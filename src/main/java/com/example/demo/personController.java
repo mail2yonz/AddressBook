@@ -22,7 +22,9 @@ public class personController {
 
         model.addAttribute ( "persons",perRepository.findAll () );
 
-        return "list";
+        //return "list"
+
+        return "mainpage";
     }
 
 
