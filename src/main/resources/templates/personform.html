@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Person Info</title>
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#my-collapsible-navbar" aria-expanded="false">
+
+                <span class="sr-only">Toggle navigation</span>
+                <span class="glyphicon glyphicon-envelope"></span>
+
+
+            </button>
+
+            <a class="navbar-brand">Address Book</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="my-collapsible-navbar">
+            <ul class="nav navbar-nav">
+                <li> <a class="navbar-brand" href="list.html">List</a></li>
+                <li><a class="navbar-brand" href="show.html">Show</a></li>
+                <li><a class="navbar-brand" href="mainpage.html">MainPage</a></li>
+
+
+
+            </ul>
+
+
+        </div>
+
+    </div>
+</nav>
+
+<form action="#" th:action="@{/process}" th:object="${person}" method="post">
+<input type="hidden" th:field="*{id}"/>
+
+    <label>Enter Your Name:</label><input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br/>
+
+    <label>Enter Your Email:</label><input type="text" th:field="*{emailAddress}"/>
+    <span th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}"></span><br/>
+
+
+    <label>Enter Your Cell Phone Number:</label><input type="number" th:field="*{phoneNumber}"/>
+    <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span><br/>
+
+       <input type="submit" value="Submit"/>
+
+</form>
+<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

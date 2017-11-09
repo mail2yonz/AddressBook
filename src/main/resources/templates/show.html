@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Show Peoples</title>
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#my-collapsible-navbar" aria-expanded="false">
+
+                <span class="sr-only">Toggle navigation</span>
+                <span class="glyphicon glyphicon-envelope"></span>
+
+
+            </button>
+
+            <a class="navbar-brand">Address Book</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="my-collapsible-navbar">
+            <ul class="nav navbar-nav">
+                <li> <a class="navbar-brand" href="list.html">List</a></li>
+                <li><a class="navbar-brand" href="show.html">Show</a></li>
+                <li><a class="navbar-brand" href="mainpage.html">MainPage</a></li>
+
+
+
+            </ul>
+
+
+        </div>
+
+    </div>
+</nav>
+<a href="/">Show All The Peoples </a><br/>
+<label>Name: </label><span th:text ="${person.name}"></span><br/>
+<label> Email Address: </label><span th:text="${person.emailAddress}"></span><br/>
+<label>Cell Phone Number: </label><span th:text="${person.phoneNumber}"></span><br/>
+<a th:href="@{/delete/{id}(id=${person.id})}">Delete This Person</a>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+</body>
+</html>
