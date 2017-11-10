@@ -24,6 +24,13 @@ public class personController {
     }
 
 
+    @RequestMapping("/detail")
+    public String showPerson( Model model)
+    {
+        model.addAttribute ( "persons" ,perRepository.findAll (  ));
+
+        return "list";
+    }
 
     @RequestMapping("/")
     public String listPersons(Model model)
@@ -40,7 +47,7 @@ public class personController {
     public String updatingPersonlist(Model model)
     {
         model.addAttribute("persons",perRepository.findAll());
-        return "update";
+        return "personform";
     }
 
     @RequestMapping("/delete")
@@ -75,7 +82,7 @@ public class personController {
         return "redirect:/";
     }
 
-    @RequestMapping("/detail/{id}")
+    @GetMapping("/detail/{id}")
     public String showPerson(@PathVariable("id") long id, Model model)
     {
         model.addAttribute ( "person" ,perRepository.findOne ( id ));
