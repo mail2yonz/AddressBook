@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update </title>
+</head>
+<body>
+<div  class="container">
+
+    <table>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Email Address
+            </th>
+            <th>
+                Cell Phone Number
+            </th>
+
+        </tr>
+        <tr th:each="person:${persons}">
+            <td th:text="${person.name}"></td>
+            <td th:text="${person.emailAddress}"></td>
+            <td th:text="${person.phoneNumber}"></td>
+            <td>
+                <a th:href="@{/update/{id}(id=${person.id})}">Modify</a>
+
+
+            </td>
+        </tr>
+
+</div>
+</body>
+</html>

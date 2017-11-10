@@ -16,19 +16,42 @@ public class personController {
     @Autowired
     personRepository perRepository;
 
+
+    @RequestMapping("/mainpage")
+    public String mainpage()
+    {
+        return "mainpage";
+    }
+
+
+
     @RequestMapping("/")
     public String listPersons(Model model)
     {
 
         model.addAttribute ( "persons",perRepository.findAll () );
 
-        //return "list"
+        return "list";
 
-        return "mainpage";
+       // return "mainpage";
     }
 
+    @RequestMapping("/update")
+    public String updatingPersonlist(Model model)
+    {
+        model.addAttribute("persons",perRepository.findAll());
+        return "update";
+    }
 
-    @GetMapping("/add")
+    @RequestMapping("/delete")
+    public String deletefromlist(Model model)
+    {
+        model.addAttribute("persons",perRepository.findAll());
+
+        return "delete";
+    }
+
+    @RequestMapping("/add")
     public String personForm(Model model)
     {
 
@@ -60,7 +83,7 @@ public class personController {
         return "show";
     }
 
-    @RequestMapping("/update/{id}")
+    @PostMapping("/update/{id}")
     public String modifyPerson(@PathVariable("id") long id,Model model)
     {
         model.addAttribute ( "person",perRepository.findOne ( id ) );

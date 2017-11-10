@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Display</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Email Address
+        </th>
+        <th>
+            Cell Phone Number
+        </th>
+
+    </tr>
+    <tr th:each="person:${persons}">
+        <td th:text="${person.name}"></td>
+        <td th:text="${person.emailAddress}"></td>
+        <td th:text="${person.phoneNumber}"></td>
+        <td>
+
+            <a th:href="@{/detail/{id}(id=${person.id})}">Show Peoples</a>
+
+
+        </td>
+    </tr>
+</body>
+</html>
