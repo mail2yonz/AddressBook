@@ -40,36 +40,44 @@
     </div>
 </nav>
 
-<a href="/add">Add a Person</a><br/>
-<table>
-    <tr>
-        <th>
-             Name
-        </th>
-        <th>
-            Email Address
-        </th>
-        <th>
-            Cell Phone Number
-        </th>
+<!--<a href="/add">Add a Person</a><br/>-->
 
-    </tr>
-    <tr th:each="person:${persons}">
-        <td th:text="${person.name}"></td>
-        <td th:text="${person.emailAddress}"></td>
-        <td th:text="${person.phoneNumber}"></td>
-        <td>
-            <a th:href="@{/update/{id}(id=${person.id})}">Modify</a>
-            <a th:href="@{/detail/{id}(id=${person.id})}">Show Peoples</a>
-            <a th:href="@{/delete/{id}(id=${person.id})}">Delete</a>
-
-        </td>
-    </tr>
+<div class="container">
 
 
 
 
-</table>
+    <table>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Email Address
+            </th>
+            <th>
+                Cell Phone Number
+            </th>
+
+        </tr>
+        <tr th:each="person:${persons}">
+            <td th:text="${person.name}"></td>
+            <td th:text="${person.emailAddress}"></td>
+            <td th:text="${person.phoneNumber}"></td>
+            <td>
+                <a th:href="@{/update/{id}(id=${person.id})}">Modify</a>
+                <a th:href="@{/detail/{id}(id=${person.id})}">Show Peoples</a>
+                <a th:href="@{/delete/{id}(id=${person.id})}">Delete</a>
+
+            </td>
+        </tr>
+
+
+
+
+    </table>
+</div>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
